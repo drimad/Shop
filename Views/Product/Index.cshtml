@@ -1,0 +1,8 @@
+<h1>List of Products</h1>
+
+<ul>
+    @foreach (var product in ViewBag.ListOfProducts)
+    {
+        <li>@product.Name</li>
+    }
+</ul>
