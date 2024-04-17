@@ -6,30 +6,44 @@ namespace Shop.Controllers;
 
 public class ProductController : Controller
 {
-    private List<Product> _products = new();
-    public ProductController()
-    {
-        var p1 = new Product
+    private static List<Product> _products = new()
+    {   new Product
         {
             Id = 1,
             Name = "BMW X5",
             Category = "Car",
             Price = 120000
-        };
-
-        var p2 = new Product
+        },
+        new Product
         {
             Id = 2,
             Name = "BMW X6",
             Category = "Car",
             Price = 140000
-        };
-        _products.Add(p1);
-        _products.Add(p2);
-    }
+        }
+    };
+
+    [HttpGet] // annotations
     public IActionResult Index()
     {
-        ViewBag.ListOfProducts = _products;
+        return View(_products);
+    }
+
+    // action to display the form
+    [HttpGet]
+    public IActionResult ProductForm()
+    {
         return View();
+    }
+
+    // action to add the new product to _products
+    [HttpPost]
+    public IActionResult ProductForm(Product product)
+    {
+        // validate new product
+        // add it to _products
+        _products.Add(product);
+        // go to Index page
+        return RedirectToAction("Index");
     }
 }

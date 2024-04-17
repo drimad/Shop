@@ -1,0 +1,24 @@
+@model Product
+
+<form asp-asp-controller="Product" asp-action="ProductForm">
+    <div class="mb-3">
+        <label asp-for="Id" class="form-label">ID</label>
+        <input type="number" class="form-control" asp-for="Id" placeholder="1">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="X1">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label">Price</label>
+        <input type="number" class="form-control" asp-for="Price" placeholder="100000">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Category" class="form-label">Category</label>
+        <input type="text" class="form-control" asp-for="Category" placeholder="4 wheel">
+    </div>
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="submit" class="btn btn-success">SAVE</button>
+        <button type="reset" class="btn btn-danger">RESET</button>
+    </div>
+</form>
